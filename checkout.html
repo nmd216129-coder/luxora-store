@@ -1,1 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>LUXORA | Contact</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#1d1d1d;
+    color:white;
+}
+
+/* HEADER */
+
+header{
+    background:#0d0d0d;
+    padding:22px 20px;
+    text-align:center;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    letter-spacing:3px;
+    margin-bottom:22px;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:17px;
+}
+
+nav a:hover{
+    color:#aaa;
+}
+
+/* CONTACT HERO */
+
+.contact-hero{
+    text-align:center;
+    padding:60px 20px 35px;
+}
+
+.contact-hero h1{
+    font-size:46px;
+    margin-bottom:15px;
+}
+
+.contact-hero p{
+    color:#aaa;
+    font-size:19px;
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1.5fr;
+    gap:25px;
+}
+
+/* INFO */
+
+.contact-info,
+.contact-form{
+    background:#101010;
+    border:1px solid #444;
+    border-radius:18px;
+    padding:30px;
+}
+
+.contact-info h2,
+.contact-form h2{
+    font-size:28px;
+    margin-bottom:25px;
+}
+
+.info-item{
+    margin-bottom:25px;
+}
+
+.info-item h3{
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.info-item p{
+    color:#aaa;
+    line-height:1.6;
+}
+
+/* FORM */
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-size:16px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:20px;
+    background:#222;
+    color:white;
+    border:2px solid #444;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+}
+
+input:focus,
+textarea:focus{
+    border-color:white;
+}
+
+textarea{
+    min-height:140px;
+    resize:vertical;
+}
+
+button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:10px;
+    background:white;
+    color:#111;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ccc;
+}
+
+/* FOOTER */
+
+footer{
+    background:#0d0d0d;
+    text-align:center;
+    padding:30px 15px;
+    color:#aaa;
+    margin-top:60px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact-hero h1{
+        font-size:38px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">LUXORA</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart 🛒</a>
+    </nav>
+
+</header>
+
+
+<!-- CONTACT HERO -->
+
+<section class="contact-hero">
+
+    <h1>Contact Us</h1>
+
+    <p>Have a question? We'd love to hear from you.</p>
+
+</section>
+
+
+<!-- CONTACT CONTENT -->
+
+<div class="container">
+
+    <div class="contact-grid">
+
+        <!-- CONTACT INFO -->
+
+        <div class="contact-info">
+
+            <h2>Get In Touch</h2>
+
+            <div class="info-item">
+                <h3>📧 Email</h3>
+                <p>hello@luxora-demo.com</p>
+            </div>
+
+            <div class="info-item">
+                <h3>📱 Phone</h3>
+                <p>+880 1XXXXXXXXX</p>
+            </div>
+
+            <div class="info-item">
+                <h3>📍 Location</h3>
+                <p>Bangladesh</p>
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT FORM -->
+
+        <div class="contact-form">
+
+            <h2>Send a Message</h2>
+
+            <form onsubmit="sendMessage(event)">
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+                <label>Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label>Message</label>
+
+                <textarea
+                    id="message"
+                    placeholder="Write your message..."
+                    required
+                ></textarea>
+
+                <button type="submit">
+                    Send Message 📩
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 LUXORA. All Rights Reserved.
+
+</footer>
+
+
+<script>
+
+function sendMessage(event){
+
+    event.preventDefault();
+
+    let name =
+        document.getElementById("name").value;
+
+    alert(
+        "Thank you, " + name +
+        "! Your message has been received. 📩"
+    );
+
+    document.querySelector("form").reset();
+
+}
+
+</script>
+
+</body>
+</html>
