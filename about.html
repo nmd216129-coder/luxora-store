@@ -1,1 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>LUXORA | About</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#1d1d1d;
+    color:white;
+}
+
+/* HEADER */
+
+header{
+    background:#0d0d0d;
+    padding:22px 20px;
+    text-align:center;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    letter-spacing:3px;
+    margin-bottom:22px;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:17px;
+}
+
+nav a:hover{
+    color:#aaa;
+}
+
+/* HERO */
+
+.about-hero{
+    text-align:center;
+    padding:70px 20px 50px;
+}
+
+.about-hero h1{
+    font-size:48px;
+    margin-bottom:18px;
+}
+
+.about-hero p{
+    color:#aaa;
+    font-size:20px;
+    max-width:700px;
+    margin:auto;
+    line-height:1.7;
+}
+
+/* CONTENT */
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:#101010;
+    border:1px solid #444;
+    border-radius:18px;
+    padding:35px;
+    margin-bottom:25px;
+}
+
+.card h2{
+    font-size:30px;
+    margin-bottom:18px;
+}
+
+.card p{
+    color:#bbb;
+    font-size:17px;
+    line-height:1.8;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.feature{
+    background:#101010;
+    border:1px solid #444;
+    border-radius:16px;
+    padding:30px 20px;
+    text-align:center;
+}
+
+.feature .icon{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.feature h3{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:#aaa;
+    line-height:1.6;
+}
+
+/* FOOTER */
+
+footer{
+    background:#0d0d0d;
+    text-align:center;
+    padding:30px 15px;
+    color:#aaa;
+    margin-top:60px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .about-hero h1{
+        font-size:38px;
+    }
+
+    .about-hero p{
+        font-size:17px;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:25px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">LUXORA</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart 🛒</a>
+    </nav>
+
+</header>
+
+
+<!-- ABOUT HERO -->
+
+<section class="about-hero">
+
+    <h1>About LUXORA</h1>
+
+    <p>
+        Discover modern fashion, timeless style,
+        and carefully selected products designed
+        for everyday elegance.
+    </p>
+
+</section>
+
+
+<!-- ABOUT CONTENT -->
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Our Story</h2>
+
+        <p>
+            LUXORA is a modern fashion e-commerce
+            concept created to bring stylish products
+            together in one simple and beautiful
+            shopping experience.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Our Mission</h2>
+
+        <p>
+            Our mission is to make online shopping
+            simple, modern, and enjoyable. We focus
+            on clean design, easy navigation, and
+            a smooth customer experience.
+        </p>
+
+    </div>
+
+
+    <!-- FEATURES -->
+
+    <div class="features">
+
+        <div class="feature">
+
+            <div class="icon">✨</div>
+
+            <h3>Modern Style</h3>
+
+            <p>
+                Clean and modern fashion
+                for everyday life.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="icon">🛍️</div>
+
+            <h3>Easy Shopping</h3>
+
+            <p>
+                Simple browsing and
+                convenient shopping.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="icon">💎</div>
+
+            <h3>Quality Focus</h3>
+
+            <p>
+                A premium-looking shopping
+                experience for customers.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 LUXORA. All Rights Reserved.
+
+</footer>
+
+</body>
+</html>
