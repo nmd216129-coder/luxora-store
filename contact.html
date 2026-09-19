@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LUXORA | About</title>
+<title>LUXORA | Contact</title>
 
 <style>
 
@@ -52,27 +52,24 @@ nav a:hover{
     color:#aaa;
 }
 
-/* HERO */
+/* CONTACT HERO */
 
-.about-hero{
+.contact-hero{
     text-align:center;
-    padding:70px 20px 50px;
+    padding:60px 20px 35px;
 }
 
-.about-hero h1{
-    font-size:48px;
-    margin-bottom:18px;
+.contact-hero h1{
+    font-size:46px;
+    margin-bottom:15px;
 }
 
-.about-hero p{
+.contact-hero p{
     color:#aaa;
-    font-size:20px;
-    max-width:700px;
-    margin:auto;
-    line-height:1.7;
+    font-size:19px;
 }
 
-/* CONTENT */
+/* CONTAINER */
 
 .container{
     max-width:1000px;
@@ -80,54 +77,87 @@ nav a:hover{
     padding:20px;
 }
 
-.card{
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1.5fr;
+    gap:25px;
+}
+
+/* INFO */
+
+.contact-info,
+.contact-form{
     background:#101010;
     border:1px solid #444;
     border-radius:18px;
-    padding:35px;
+    padding:30px;
+}
+
+.contact-info h2,
+.contact-form h2{
+    font-size:28px;
     margin-bottom:25px;
 }
 
-.card h2{
-    font-size:30px;
-    margin-bottom:18px;
+.info-item{
+    margin-bottom:25px;
 }
 
-.card p{
-    color:#bbb;
-    font-size:17px;
-    line-height:1.8;
+.info-item h3{
+    font-size:18px;
+    margin-bottom:7px;
 }
 
-/* FEATURES */
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.feature{
-    background:#101010;
-    border:1px solid #444;
-    border-radius:16px;
-    padding:30px 20px;
-    text-align:center;
-}
-
-.feature .icon{
-    font-size:40px;
-    margin-bottom:15px;
-}
-
-.feature h3{
-    font-size:20px;
-    margin-bottom:10px;
-}
-
-.feature p{
+.info-item p{
     color:#aaa;
     line-height:1.6;
+}
+
+/* FORM */
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-size:16px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:20px;
+    background:#222;
+    color:white;
+    border:2px solid #444;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+}
+
+input:focus,
+textarea:focus{
+    border-color:white;
+}
+
+textarea{
+    min-height:140px;
+    resize:vertical;
+}
+
+button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:10px;
+    background:white;
+    color:#111;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ccc;
 }
 
 /* FOOTER */
@@ -144,20 +174,12 @@ footer{
 
 @media(max-width:700px){
 
-    .about-hero h1{
-        font-size:38px;
-    }
-
-    .about-hero p{
-        font-size:17px;
-    }
-
-    .features{
+    .contact-grid{
         grid-template-columns:1fr;
     }
 
-    .card{
-        padding:25px;
+    .contact-hero h1{
+        font-size:38px;
     }
 
 }
@@ -184,95 +206,86 @@ footer{
 </header>
 
 
-<!-- ABOUT HERO -->
+<!-- CONTACT HERO -->
 
-<section class="about-hero">
+<section class="contact-hero">
 
-    <h1>About LUXORA</h1>
+    <h1>Contact Us</h1>
 
-    <p>
-        Discover modern fashion, timeless style,
-        and carefully selected products designed
-        for everyday elegance.
-    </p>
+    <p>Have a question? We'd love to hear from you.</p>
 
 </section>
 
 
-<!-- ABOUT CONTENT -->
+<!-- CONTACT CONTENT -->
 
 <div class="container">
 
-    <div class="card">
+    <div class="contact-grid">
 
-        <h2>Our Story</h2>
+        <!-- CONTACT INFO -->
 
-        <p>
-            LUXORA is a modern fashion e-commerce
-            concept created to bring stylish products
-            together in one simple and beautiful
-            shopping experience.
-        </p>
+        <div class="contact-info">
 
-    </div>
+            <h2>Get In Touch</h2>
 
+            <div class="info-item">
+                <h3>📧 Email</h3>
+                <p>hello@luxora-demo.com</p>
+            </div>
 
-    <div class="card">
+            <div class="info-item">
+                <h3>📱 Phone</h3>
+                <p>+880 1XXXXXXXXX</p>
+            </div>
 
-        <h2>Our Mission</h2>
-
-        <p>
-            Our mission is to make online shopping
-            simple, modern, and enjoyable. We focus
-            on clean design, easy navigation, and
-            a smooth customer experience.
-        </p>
-
-    </div>
-
-
-    <!-- FEATURES -->
-
-    <div class="features">
-
-        <div class="feature">
-
-            <div class="icon">✨</div>
-
-            <h3>Modern Style</h3>
-
-            <p>
-                Clean and modern fashion
-                for everyday life.
-            </p>
+            <div class="info-item">
+                <h3>📍 Location</h3>
+                <p>Bangladesh</p>
+            </div>
 
         </div>
 
 
-        <div class="feature">
+        <!-- CONTACT FORM -->
 
-            <div class="icon">🛍️</div>
+        <div class="contact-form">
 
-            <h3>Easy Shopping</h3>
+            <h2>Send a Message</h2>
 
-            <p>
-                Simple browsing and
-                convenient shopping.
-            </p>
+            <form onsubmit="sendMessage(event)">
 
-        </div>
+                <label>Full Name</label>
 
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
 
-        <div class="feature">
+                <label>Email Address</label>
 
-            <div class="icon">💎</div>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
 
-            <h3>Quality Focus</h3>
+                <label>Message</label>
 
-            <p>
-                A premium-looking shopping
-                experience for customers.
-            </p>
+                <textarea
+                    id="message"
+                    placeholder="Write your message..."
+                    required
+                ></textarea>
+
+                <button type="submit">
+                    Send Message 📩
+                </button>
+
+            </form>
 
         </div>
 
@@ -288,6 +301,23 @@ footer{
     © 2026 LUXORA. All Rights Reserved.
 
 </footer>
+
+
+<script>
+
+document.querySelector("form").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+
+    alert("Thank you, " + name + "! Your message has been received. 📩");
+
+    this.reset();
+
+});
+
+</script>
 
 </body>
 </html>
