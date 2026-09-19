@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,42 +7,50 @@
 <title>LUXORA | Shop</title>
 
 <style>
-/* LUXORA LOGO ANIMATION */
 
-.logo{
-    animation: luxoraLogo 1.5s ease-out;
-}
+/* =========================
+   RESET
+========================= */
 
-@keyframes luxoraLogo{
-    0%{
-        opacity:0;
-        transform:translateY(-20px);
-        letter-spacing:12px;
-    }
-
-    60%{
-        opacity:0.7;
-    }
-
-    100%{
-        opacity:1;
-        transform:translateY(0);
-        letter-spacing:3px;
-    }
-}
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:Arial,sans-serif;
     background:#1d1d1d;
     color:white;
+    overflow-x:hidden;
 }
 
-/* HEADER */
+
+/* =========================
+   PAGE LOADING ANIMATION
+========================= */
+
+body{
+    animation:pageFade 1s ease;
+}
+
+@keyframes pageFade{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+
+/* =========================
+   HEADER
+========================= */
 
 header{
     background:#0d0d0d;
@@ -59,30 +66,92 @@ header{
     font-weight:bold;
     letter-spacing:3px;
     margin-bottom:22px;
+
+    animation:logoReveal 1.4s ease-out;
 }
+
+@keyframes logoReveal{
+
+    0%{
+        opacity:0;
+        transform:translateY(-30px) scale(.8);
+        letter-spacing:15px;
+    }
+
+    60%{
+        opacity:.7;
+        transform:translateY(5px) scale(1.05);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+        letter-spacing:3px;
+    }
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
 
 nav{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
     gap:20px;
+
+    animation:navReveal 1.2s ease .3s both;
+}
+
+@keyframes navReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 nav a{
     color:white;
     text-decoration:none;
     font-size:17px;
+    transition:.3s;
 }
 
 nav a:hover{
     color:#aaa;
+    transform:translateY(-2px);
 }
 
-/* SHOP HEADER */
+
+/* =========================
+   SHOP HEADER
+========================= */
 
 .shop-header{
     text-align:center;
     padding:45px 20px 25px;
+
+    animation:headerReveal 1s ease .4s both;
+}
+
+@keyframes headerReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .shop-header h1{
@@ -95,30 +164,57 @@ nav a:hover{
     font-size:20px;
 }
 
-/* SEARCH */
+
+/* =========================
+   SEARCH
+========================= */
 
 .search-box{
     max-width:600px;
     margin:20px auto 30px;
     padding:0 20px;
+
+    animation:searchReveal 1s ease .6s both;
+}
+
+@keyframes searchReveal{
+
+    from{
+        opacity:0;
+        transform:scale(.95);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
 .search-box input{
     width:100%;
     padding:18px;
+
     background:#111;
     border:2px solid #555;
     border-radius:12px;
+
     color:white;
     font-size:17px;
     outline:none;
+
+    transition:.3s;
 }
 
 .search-box input:focus{
     border-color:white;
+    box-shadow:0 0 18px rgba(255,255,255,.15);
+    transform:scale(1.01);
 }
 
-/* FILTER */
+
+/* =========================
+   FILTER
+========================= */
 
 .filters{
     display:flex;
@@ -126,25 +222,52 @@ nav a:hover{
     flex-wrap:wrap;
     gap:12px;
     padding:0 20px 35px;
+
+    animation:filterReveal 1s ease .7s both;
+}
+
+@keyframes filterReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .filter-btn{
     padding:13px 25px;
+
     background:#111;
     color:white;
+
     border:2px solid #555;
     border-radius:10px;
+
     font-size:16px;
     cursor:pointer;
+
+    transition:.3s;
 }
 
-.filter-btn:hover,
+.filter-btn:hover{
+    transform:translateY(-3px);
+    border-color:white;
+}
+
 .filter-btn.active{
     background:white;
     color:#111;
 }
 
-/* PRODUCTS */
+
+/* =========================
+   PRODUCTS
+========================= */
 
 .products{
     max-width:1100px;
@@ -156,22 +279,90 @@ nav a:hover{
     gap:25px;
 }
 
-/* PRODUCT */
+
+/* =========================
+   PRODUCT CARD ANIMATION
+========================= */
 
 .product{
     background:#101010;
+
     border:1px solid #444;
     border-radius:16px;
+
     overflow:hidden;
-    transition:0.3s;
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+
+    animation:productReveal .8s ease both;
 }
+
+
+/* Each card appears one after another */
+
+.product:nth-child(1){
+    animation-delay:.1s;
+}
+
+.product:nth-child(2){
+    animation-delay:.2s;
+}
+
+.product:nth-child(3){
+    animation-delay:.3s;
+}
+
+.product:nth-child(4){
+    animation-delay:.4s;
+}
+
+.product:nth-child(5){
+    animation-delay:.5s;
+}
+
+.product:nth-child(6){
+    animation-delay:.6s;
+}
+
+.product:nth-child(7){
+    animation-delay:.7s;
+}
+
+.product:nth-child(8){
+    animation-delay:.8s;
+}
+
+@keyframes productReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(45px) scale(.95);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+
+/* Product hover */
 
 .product:hover{
-    transform:translateY(-5px);
-    border-color:#888;
+    transform:translateY(-8px);
+    border-color:#999;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.5);
 }
 
-/* IMAGE */
+
+/* =========================
+   PRODUCT IMAGE
+========================= */
 
 .product-image{
     width:100%;
@@ -183,16 +374,24 @@ nav a:hover{
 .product-image img{
     width:100%;
     height:100%;
+
     object-fit:cover;
     display:block;
-    transition:0.4s;
+
+    transition:
+        transform .6s ease,
+        filter .4s ease;
 }
 
 .product:hover .product-image img{
-    transform:scale(1.05);
+    transform:scale(1.08);
+    filter:brightness(1.08);
 }
 
-/* INFO */
+
+/* =========================
+   PRODUCT INFO
+========================= */
 
 .product-info{
     padding:20px;
@@ -215,46 +414,89 @@ nav a:hover{
     margin-bottom:18px;
 }
 
-/* ADD TO CART */
+
+/* =========================
+   ADD TO CART
+========================= */
 
 .add-cart{
     width:100%;
     padding:15px;
+
     border:none;
     border-radius:10px;
+
     background:#333;
     color:white;
+
     font-size:17px;
     font-weight:bold;
+
     cursor:pointer;
+
+    transition:
+        transform .2s ease,
+        background .3s ease;
 }
 
 .add-cart:hover{
     background:white;
     color:#111;
+    transform:translateY(-2px);
 }
 
-/* NO PRODUCT */
+.add-cart:active{
+    transform:scale(.94);
+}
+
+
+/* =========================
+   NO PRODUCT
+========================= */
 
 .no-product{
     display:none;
     text-align:center;
     padding:50px;
+
     color:#aaa;
     font-size:20px;
+
     grid-column:1/-1;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     background:#0d0d0d;
+
     text-align:center;
+
     padding:30px 15px;
+
     color:#aaa;
+
+    animation:footerReveal 1s ease;
 }
 
-/* TABLET */
+@keyframes footerReveal{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
 
 @media(max-width:800px){
 
@@ -268,7 +510,10 @@ footer{
 
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:550px){
 
@@ -310,37 +555,57 @@ footer{
 </style>
 </head>
 
+
 <body>
 
-<!-- HEADER -->
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
-    <div class="logo">LUXORA</div>
+    <div class="logo">
+        LUXORA
+    </div>
 
     <nav>
+
         <a href="index.html">Home</a>
+
         <a href="shop.html">Shop</a>
+
         <a href="about.html">About</a>
+
         <a href="contact.html">Contact</a>
+
         <a href="cart.html">Cart 🛒</a>
+
     </nav>
 
 </header>
 
 
-<!-- SHOP HEADER -->
+<!-- =========================
+     SHOP HEADER
+========================= -->
 
 <section class="shop-header">
 
-    <h1>Shop Collection</h1>
+    <h1>
+        Shop Collection
+    </h1>
 
-    <p>Discover modern fashion at LUXORA.</p>
+    <p>
+        Discover modern fashion at LUXORA.
+    </p>
 
 </section>
 
 
-<!-- SEARCH -->
+<!-- =========================
+     SEARCH
+========================= -->
 
 <div class="search-box">
 
@@ -354,7 +619,9 @@ footer{
 </div>
 
 
-<!-- FILTER -->
+<!-- =========================
+     FILTER
+========================= -->
 
 <div class="filters">
 
@@ -385,36 +652,51 @@ footer{
 </div>
 
 
-<!-- PRODUCTS -->
+<!-- =========================
+     PRODUCTS
+========================= -->
 
-<section class="products" id="products">
+<section
+    class="products"
+    id="products"
+>
 
 
 <!-- PRODUCT 1 -->
 
-<div class="product"
-     data-category="men"
-     data-name="classic men's shirt">
+<div
+    class="product"
+    data-category="men"
+    data-name="classic men's shirt"
+>
 
     <div class="product-image">
 
         <img
-        src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80"
-        alt="Classic Men's Shirt">
+            src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80"
+            alt="Classic Men's Shirt"
+        >
 
     </div>
 
     <div class="product-info">
 
-        <h2>Classic Men's Shirt</h2>
+        <h2>
+            Classic Men's Shirt
+        </h2>
 
-        <p class="category">Men's Fashion</p>
+        <p class="category">
+            Men's Fashion
+        </p>
 
-        <p class="price">৳1,200</p>
+        <p class="price">
+            ৳1,200
+        </p>
 
         <button
             class="add-cart"
-            onclick="addToCart(this)">
+            onclick="addToCart(this)"
+        >
             Add to Cart
         </button>
 
@@ -425,29 +707,39 @@ footer{
 
 <!-- PRODUCT 2 -->
 
-<div class="product"
-     data-category="men"
-     data-name="men's t-shirt">
+<div
+    class="product"
+    data-category="men"
+    data-name="men's t-shirt"
+>
 
     <div class="product-image">
 
         <img
-        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
-        alt="Men's T-Shirt">
+            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+            alt="Men's T-Shirt"
+        >
 
     </div>
 
     <div class="product-info">
 
-        <h2>Men's T-Shirt</h2>
+        <h2>
+            Men's T-Shirt
+        </h2>
 
-        <p class="category">Men's Fashion</p>
+        <p class="category">
+            Men's Fashion
+        </p>
 
-        <p class="price">৳850</p>
+        <p class="price">
+            ৳850
+        </p>
 
         <button
             class="add-cart"
-            onclick="addToCart(this)">
+            onclick="addToCart(this)"
+        >
             Add to Cart
         </button>
 
@@ -458,29 +750,39 @@ footer{
 
 <!-- PRODUCT 3 -->
 
-<div class="product"
-     data-category="men"
-     data-name="men's jacket">
+<div
+    class="product"
+    data-category="men"
+    data-name="men's jacket"
+>
 
     <div class="product-image">
 
         <img
-        src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80"
-        alt="Men's Jacket">
+            src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80"
+            alt="Men's Jacket"
+        >
 
     </div>
 
     <div class="product-info">
 
-        <h2>Men's Jacket</h2>
+        <h2>
+            Men's Jacket
+        </h2>
 
-        <p class="category">Men's Fashion</p>
+        <p class="category">
+            Men's Fashion
+        </p>
 
-        <p class="price">৳2,500</p>
+        <p class="price">
+            ৳2,500
+        </p>
 
         <button
             class="add-cart"
-            onclick="addToCart(this)">
+            onclick="addToCart(this)"
+        >
             Add to Cart
         </button>
 
@@ -491,29 +793,39 @@ footer{
 
 <!-- PRODUCT 4 -->
 
-<div class="product"
-     data-category="women"
-     data-name="women's dress">
+<div
+    class="product"
+    data-category="women"
+    data-name="women's dress"
+>
 
     <div class="product-image">
 
         <img
-        src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80"
-        alt="Women's Dress">
+            src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80"
+            alt="Women's Dress"
+        >
 
     </div>
 
     <div class="product-info">
 
-        <h2>Women's Dress</h2>
+        <h2>
+            Women's Dress
+        </h2>
 
-        <p class="category">Women's Fashion</p>
+        <p class="category">
+            Women's Fashion
+        </p>
 
-        <p class="price">৳1,800</p>
+        <p class="price">
+            ৳1,800
+        </p>
 
         <button
             class="add-cart"
-            onclick="addToCart(this)">
+            onclick="addToCart(this)"
+        >
             Add to Cart
         </button>
 
@@ -524,29 +836,39 @@ footer{
 
 <!-- PRODUCT 5 -->
 
-<div class="product"
-     data-category="women"
-     data-name="women's fashion top">
+<div
+    class="product"
+    data-category="women"
+    data-name="women's fashion top"
+>
 
     <div class="product-image">
 
         <img
-        src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80"
-        alt="Women's Fashion Top">
+            src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80"
+            alt="Women's Fashion Top"
+        >
 
     </div>
 
     <div class="product-info">
 
-        <h2>Women's Fashion Top</h2>
+        <h2>
+            Women's Fashion Top
+        </h2>
 
-        <p class="category">Women's Fashion</p>
+        <p class="category">
+            Women's Fashion
+        </p>
 
-        <p class="price">৳950</p>
+        <p class="price">
+            ৳950
+        </p>
 
         <button
             class="add-cart"
-            onclick="addToCart(this)">
+            onclick="addToCart(this)"
+        >
             Add to Cart
         </button>
 
@@ -557,29 +879,39 @@ footer{
 
 <!-- PRODUCT 6 -->
 
-<div class="product"
-     data-category="accessories"
-     data-name="classic watch">
+<div
+    class="product"
+    data-category="accessories"
+    data-name="classic watch"
+>
 
     <div class="product-image">
 
         <img
-        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
-        alt="Classic Watch">
+            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+            alt="Classic Watch"
+        >
 
     </div>
 
     <div class="product-info">
 
-        <h2>Classic Watch</h2>
+        <h2>
+            Classic Watch
+        </h2>
 
-        <p class="category">Accessories</p>
+        <p class="category">
+            Accessories
+        </p>
 
-        <p class="price">৳1,500</p>
+        <p class="price">
+            ৳1,500
+        </p>
 
         <button
             class="add-cart"
-            onclick="addToCart(this)">
+            onclick="addToCart(this)"
+        >
             Add to Cart
         </button>
 
@@ -590,29 +922,39 @@ footer{
 
 <!-- PRODUCT 7 -->
 
-<div class="product"
-     data-category="accessories"
-     data-name="leather bag">
+<div
+    class="product"
+    data-category="accessories"
+    data-name="leather bag"
+>
 
     <div class="product-image">
 
         <img
-        src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80"
-        alt="Leather Bag">
+            src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80"
+            alt="Leather Bag"
+        >
 
     </div>
 
     <div class="product-info">
 
-        <h2>Leather Bag</h2>
+        <h2>
+            Leather Bag
+        </h2>
 
-        <p class="category">Accessories</p>
+        <p class="category">
+            Accessories
+        </p>
 
-        <p class="price">৳2,200</p>
+        <p class="price">
+            ৳2,200
+        </p>
 
         <button
             class="add-cart"
-            onclick="addToCart(this)">
+            onclick="addToCart(this)"
+        >
             Add to Cart
         </button>
 
@@ -623,29 +965,39 @@ footer{
 
 <!-- PRODUCT 8 -->
 
-<div class="product"
-     data-category="accessories"
-     data-name="premium sunglasses">
+<div
+    class="product"
+    data-category="accessories"
+    data-name="premium sunglasses"
+>
 
     <div class="product-image">
 
         <img
-        src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80"
-        alt="Premium Sunglasses">
+            src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80"
+            alt="Premium Sunglasses"
+        >
 
     </div>
 
     <div class="product-info">
 
-        <h2>Premium Sunglasses</h2>
+        <h2>
+            Premium Sunglasses
+        </h2>
 
-        <p class="category">Accessories</p>
+        <p class="category">
+            Accessories
+        </p>
 
-        <p class="price">৳750</p>
+        <p class="price">
+            ৳750
+        </p>
 
         <button
             class="add-cart"
-            onclick="addToCart(this)">
+            onclick="addToCart(this)"
+        >
             Add to Cart
         </button>
 
@@ -658,16 +1010,18 @@ footer{
 
 <div
     class="no-product"
-    id="noProduct">
-
+    id="noProduct"
+>
     No products found.
-
 </div>
+
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -678,7 +1032,10 @@ footer{
 
 <script>
 
-/* ADD TO CART */
+
+/* =========================
+   ADD TO CART
+========================= */
 
 function addToCart(button){
 
@@ -687,63 +1044,130 @@ function addToCart(button){
             localStorage.getItem("luxoraCart")
         ) || [];
 
+
     let product =
         button.closest(".product");
 
+
     let name =
-        product.querySelector("h2").innerText;
+        product
+        .querySelector("h2")
+        .innerText;
+
 
     let priceText =
-        product.querySelector(".price").innerText;
+        product
+        .querySelector(".price")
+        .innerText;
+
 
     let price =
         Number(
             priceText.replace(/[^\d]/g, "")
         );
 
+
     let category =
-        product.querySelector(".category").innerText;
+        product
+        .querySelector(".category")
+        .innerText;
+
 
     let image =
-        product.querySelector("img").src;
+        product
+        .querySelector("img")
+        .src;
+
 
     cart.push({
-        name: name,
-        price: price,
-        category: category,
-        image: image
+
+        name:name,
+
+        price:price,
+
+        category:category,
+
+        image:image
+
     });
+
 
     localStorage.setItem(
         "luxoraCart",
         JSON.stringify(cart)
     );
 
+
+    /* Button animation */
+
+    let originalText =
+        button.innerText;
+
+
+    button.innerText =
+        "Added ✓";
+
+
+    button.style.background =
+        "white";
+
+
+    button.style.color =
+        "#111";
+
+
+    setTimeout(function(){
+
+        button.innerText =
+            originalText;
+
+        button.style.background =
+            "";
+
+        button.style.color =
+            "";
+
+    },1200);
+
+
     alert(
-        name + " added to cart! 🛒"
+        name +
+        " added to cart! 🛒"
     );
 
 }
 
 
-/* FILTER PRODUCTS */
+/* =========================
+   FILTER PRODUCTS
+========================= */
 
 function filterProducts(category, button){
 
     let products =
-        document.querySelectorAll(".product");
+        document.querySelectorAll(
+            ".product"
+        );
+
 
     document
         .querySelectorAll(".filter-btn")
         .forEach(function(btn){
 
-            btn.classList.remove("active");
+            btn.classList.remove(
+                "active"
+            );
 
         });
 
-    button.classList.add("active");
+
+    button.classList.add(
+        "active"
+    );
+
 
     let found = false;
+
 
     products.forEach(function(product){
 
@@ -752,65 +1176,89 @@ function filterProducts(category, button){
             product.dataset.category === category
         ){
 
-            product.style.display = "block";
+            product.style.display =
+                "block";
 
             found = true;
 
         }else{
 
-            product.style.display = "none";
+            product.style.display =
+                "none";
 
         }
 
     });
 
-    document.getElementById("noProduct").style.display =
+
+    document.getElementById(
+        "noProduct"
+    ).style.display =
         found ? "none" : "block";
 
 }
 
 
-/* SEARCH PRODUCTS */
+/* =========================
+   SEARCH PRODUCTS
+========================= */
 
 function searchProducts(){
 
     let search =
         document
-        .getElementById("searchInput")
+        .getElementById(
+            "searchInput"
+        )
         .value
         .toLowerCase()
         .trim();
 
+
     let products =
-        document.querySelectorAll(".product");
+        document.querySelectorAll(
+            ".product"
+        );
+
 
     let found = false;
+
 
     products.forEach(function(product){
 
         let name =
-            product.dataset.name.toLowerCase();
+            product.dataset.name
+            .toLowerCase();
 
-        if(name.includes(search)){
 
-            product.style.display = "block";
+        if(
+            name.includes(search)
+        ){
+
+            product.style.display =
+                "block";
 
             found = true;
 
         }else{
 
-            product.style.display = "none";
+            product.style.display =
+                "none";
 
         }
 
     });
 
-    document.getElementById("noProduct").style.display =
+
+    document.getElementById(
+        "noProduct"
+    ).style.display =
         found ? "none" : "block";
 
 }
 
 </script>
 
+
 </body>
-          </html>
+</html>
